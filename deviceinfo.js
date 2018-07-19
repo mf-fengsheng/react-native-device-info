@@ -88,6 +88,9 @@ module.exports = {
   is24Hour: function() {
     return RNDeviceInfo.is24Hour;
   },
+  isDebugModeOn: function() {
+    return RNDeviceInfo.isDebugModeOn;
+  },
   isPinOrFingerprintSet: function() {
     return RNDeviceInfo.isPinOrFingerprintSet;
   },

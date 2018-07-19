@@ -24,6 +24,7 @@ export function isEmulator(): boolean;
 export function isTablet(): boolean;
 export function getFontScale(): number;
 export function is24Hour(): boolean;
+export function isDebugModeOn(): boolean;
 export function isPinOrFingerprintSet(): (
   cb: (isPinOrFingerprintSet: boolean) => void
 ) => void;

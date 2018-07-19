@@ -122,6 +122,11 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
     return android.text.format.DateFormat.is24HourFormat(this.reactContext.getApplicationContext());
   }
 
+  private Boolean isDebugModeOn() {
+    return  Settings.Secure.getInt(this.getContentResolver(),
+            Settings.Global.DEVELOPMENT_SETTINGS_ENABLED , 0) == 1;
+  }
+
   @ReactMethod
   public void isPinOrFingerprintSet(Callback callback) {
     KeyguardManager keyguardManager = (KeyguardManager) this.reactContext.getApplicationContext().getSystemService(Context.KEYGUARD_SERVICE); //api 16+
@@ -287,7 +292,9 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
     constants.put("isTablet", this.isTablet());
     constants.put("fontScale", this.fontScale());
     constants.put("is24Hour", this.is24Hour());
-    if (getCurrentActivity() != null &&
+    constants.put("isDebugModeOn", this.isDebugModeOn());
+
+      if (getCurrentActivity() != null &&
         (getCurrentActivity().checkCallingOrSelfPermission(Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED ||
             getCurrentActivity().checkCallingOrSelfPermission(Manifest.permission.READ_SMS) == PackageManager.PERMISSION_GRANTED ||
             getCurrentActivity().checkCallingOrSelfPermission("android.permission.READ_PHONE_NUMBERS") == PackageManager.PERMISSION_GRANTED)) {
