@@ -123,6 +123,13 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  private void isIntentUrl(String url, Promise promise) {
+    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+    String className = intent.resolveActivity(getReactApplicationContext().getPackageManager()).getClassName();
+    promise.resolve(!className.equals("com.android.internal.app.ResolverActivity"));
+  }
+
+  @ReactMethod
   public void isPinOrFingerprintSet(Callback callback) {
     KeyguardManager keyguardManager = (KeyguardManager) this.reactContext.getApplicationContext().getSystemService(Context.KEYGUARD_SERVICE); //api 16+
     callback.invoke(keyguardManager.isKeyguardSecure());
