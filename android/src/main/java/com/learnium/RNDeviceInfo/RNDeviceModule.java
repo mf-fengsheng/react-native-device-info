@@ -40,7 +40,7 @@ import java.lang.Runtime;
 import java.net.NetworkInterface;
 
 import javax.annotation.Nullable;
-import java.net.URL
+import java.net.URL;
 
 public class RNDeviceModule extends ReactContextBaseJavaModule {
 
