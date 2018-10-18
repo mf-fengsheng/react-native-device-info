@@ -40,7 +40,8 @@ declare const _default: {
   getTotalDiskCapacity: () => number;
   getFreeDiskStorage: () => number;
   getBatteryLevel: () => Promise<number>;
-  isLandscape: () => boolean;    
+  isLandscape: () => boolean;
+  isIntentUrl (url: string): Promise<boolean>;
 };
 
 export default _default;

@@ -242,5 +242,8 @@ export default {
   isLandscape: function() {
     const { height, width } = Dimensions.get('window');
     return width >= height;
-  }    
+  },
+  isIntentUrl: function(url) {
+    return RNDeviceInfo.isIntentUrl(url);
+  }
 };
