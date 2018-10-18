@@ -121,7 +121,4 @@ module.exports = {
   getBatteryLevel: function() {
     return RNDeviceInfo.getBatteryLevel();
   },
-  isIntentUrl: function(url) {
-    return RNDeviceInfo.isIntentUrl(url);
-  },
 };
